@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luthzz Digital | Professional Digital Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --darker: #0a0f1d;
+            --gray-900: #1e293b;
+            --gray-800: #334155;
+            --gray-700: #475569;
+            --gray-600: #64748b;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.35);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.4);
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 20%);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-900);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 8%;
+            background: rgba(10, 15, 29, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.75rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .products-btn {
+            position: relative;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .products-btn:hover {
+            background: rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cart-btn {
+            position: relative;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--secondary);
+            color: white;
+            font-size: 0.7rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 10rem 8% 6rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.75rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient-primary);
+            transform: scale(1.1);
+        }
+
+        .service-card:hover .service-icon i {
+            background: linear-gradient(135deg, white 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .service-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .service-features li i {
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 29, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cart-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .cart-content {
+            background: var(--gray-900);
+            width: 90%;
+            max-width: 650px;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.4s, opacity 0.4s;
+        }
+
+        .cart-modal.active .cart-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .cart-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.75rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-cart:hover {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-price {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quantity-display {
+            min-width: 36px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .remove-item {
+            color: #ef4444;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .remove-item:hover {
+            color: #f87171;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .cart-summary {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            font-size: 1.05rem;
+        }
+
+        .cart-total-row:first-child {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cart-total-row:last-child {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-top: 1rem;
+            border-top: 2px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+            margin-bottom: 1rem;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.6);
+        }
+
+        .continue-shopping {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 2px solid var(--gray-700);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .continue-shopping:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            opacity: 0.2;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart p {
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            padding: 5rem 8% 2rem;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 5% 5rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .services {
+                padding: 6rem 5% 4rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-content {
+                width: 95%;
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-code logo-icon"></i>
+            <span class="logo-text">Luthzz Digital</span>
+        </a>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="lainnya.html" class="products-btn">
+                <i class="fas fa-boxes"></i>
+                <span>Produk Lain</span>
+            </a>
+            <button class="cart-btn" onclick="openCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Troli</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>Professional Digital Services</span>
+            </div>
+            <h1>Transform Your Digital Presence with Expert Solutions</h1>
+            <p>High-quality digital services tailored to your needs. From game server management to custom web development, we deliver excellence with every project.</p>
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <a href="#services" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Explore Services
+                </a>
+                <a href="lainnya.html" class="btn btn-outline">
+                    <i class="fas fa-boxes"></i>
+                    Produk Lain
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-subtitle">Our Services</div>
+            <h2 class="section-title">Premium Digital Solutions</h2>
+            <p class="section-description">Professional services crafted with precision and delivered with excellence. Choose the perfect solution for your digital needs.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Jasa On Server GTA SAMP</h3>
+                <p>Professional server hosting and management for GTA SAMP with 99.9% uptime guarantee and 24/7 technical support.</p>
+                <span class="service-price">Rp 150.000</span>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> 24/7 Server Monitoring</li>
+                    <li><i class="fas fa-check-circle"></i> DDoS Protection</li>
+                    <li><i class="fas fa-check-circle"></i> Custom Script Support</li>
+                </ul>
+                <button class="btn btn-outline" onclick="addToCart('Jasa On Server GTA SAMP', 150000)">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Developer SAMP</h3>
+                <p>Expert SAMP scripting and development services. Custom gamemodes, systems, and features tailored to your server's needs.</p>
+                <span class="service-price">Rp 300.000</span>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Custom Gamemode Development</li>
+                    <li><i class="fas fa-check-circle"></i> Anti-Cheat Systems</li>
+                    <li><i class="fas fa-check-circle"></i> Database Integration</li>
+                </ul>
+                <button class="btn btn-outline" onclick="addToCart('Developer SAMP', 300000)">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Jasa Buat Portfolio</h3>
+                <p>Stunning, responsive portfolio websites that showcase your work and skills professionally. Perfect for freelancers and creatives.</p>
+                <span class="service-price">Rp 200.000</span>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Modern Design</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile Responsive</li>
+                    <li><i class="fas fa-check-circle"></i> SEO Optimized</li>
+                </ul>
+                <button class="btn btn-outline" onclick="addToCart('Jasa Buat Portfolio', 200000)">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>Website Development</h3>
+                <p>Complete custom website development for businesses. From concept to launch, we build websites that drive results.</p>
+                <span class="service-price">Rp 500.000</span>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Custom Design</li>
+                    <li><i class="fas fa-check-circle"></i> E-commerce Ready</li>
+                    <li><i class="fas fa-check-circle"></i> Fast Loading</li>
+                </ul>
+                <button class="btn btn-outline" onclick="addToCart('Website Development', 500000)">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Make Bot WhatsApp</h3>
+                <p>Automated WhatsApp bots for customer service, marketing, and notifications. AI-powered responses for better engagement.</p>
+                <span class="service-price">Rp 250.000</span>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Auto Reply System</li>
+                    <li><i class="fas fa-check-circle"></i> AI Integration</li>
+                    <li><i class="fas fa-check-circle"></i> Multi-language Support</li>
+                </ul>
+                <button class="btn btn-outline" onclick="addToCart('Make Bot WhatsApp', 250000)">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Custom Development</h3>
+                <p>Bespoke software solutions tailored to your unique business requirements. From desktop apps to web platforms.</p>
+                <span class="service-price">Rp 400.000</span>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Tailored Solutions</li>
+                    <li><i class="fas fa-check-circle"></i> Scalable Architecture</li>
+                    <li><i class="fas fa-check-circle"></i> Ongoing Support</li>
+                </ul>
+                <button class="btn btn-outline" onclick="addToCart('Custom Development', 400000)">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+                <button class="close-cart" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your cart is empty</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.6;">Add items to get started</p>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="cart-total-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">Rp 0</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Tax (10%)</span>
+                    <span id="cartTax">Rp 0</span>
+                </div>
+                <div class="cart-total-row">
+                    <span><strong>Total</strong></span>
+                    <span id="cartTotal"><strong>Rp 0</strong></span>
+                </div>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">
+                <i class="fas fa-check-circle"></i> Proceed to Checkout
+            </button>
+            <button class="continue-shopping" onclick="closeCart()">
+                <i class="fas fa-shopping-bag"></i> Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Luthzz Digital</h4>
+                <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem; font-size: 0.95rem;">
+                    Professional digital services provider specializing in game server management, web development, and automation solutions.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">GTA SAMP Server</a></li>
+                    <li><a href="#">SAMP Development</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">WhatsApp Bot</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-links" style="margin-top: 1rem;">
+                    <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> luthzz@example.com</li>
+                    <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +62 8xx xxxx xxxx</li>
+                    <li><i class="fab fa-whatsapp" style="margin-right: 0.5rem; color: var(--primary);"></i> WhatsApp Support</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Luthzz Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+                showNotification(`${name} quantity updated!`, 'success');
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+                showNotification(`${name} added to cart!`, 'success');
+            }
+            
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+            const cartTax = document.getElementById('cartTax');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            // Update cart count
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalCount;
+            
+            // Update cart items display
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <p>Your cart is empty</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.6;">Add items to get started</p>
+                    </div>
+                `;
+                cartSubtotal.textContent = 'Rp 0';
+                cartTax.textContent = 'Rp 0';
+                cartTotal.textContent = 'Rp 0';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')}</div>
+                        </div>
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="decreaseQuantity(${index})">-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="increaseQuantity(${index})">+</button>
+                        </div>
+                        <button class="remove-item" onclick="removeItem(${index})" title="Remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            const tax = Math.round(subtotal * 0.1);
+            const total = subtotal + tax;
+            
+            cartItems.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            cartTax.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+            cartTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+        }
+
+        function increaseQuantity(index) {
+            cart[index].quantity += 1;
+            updateCartDisplay();
+            showNotification('Quantity increased!', 'info');
+        }
+
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+                updateCartDisplay();
+                showNotification('Quantity decreased!', 'info');
+            }
+        }
+
+        function removeItem(index) {
+            const itemName = cart[index].name;
+            cart.splice(index, 1);
+            updateCartDisplay();
+            showNotification(`${itemName} removed from cart!`, 'warning');
+        }
+
+        function openCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const itemsList = cart.map(item => `${item.name} (x${item.quantity})`).join('\n');
+            
+            showNotification(`Checkout successful!\n\nItems:\n${itemsList}\n\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nThank you for your order!`, 'success');
+            
+            // Clear cart after checkout
+            cart = [];
+            updateCartDisplay();
+            closeCart();
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
+                color: white;
+                padding: 1.2rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+                z-index: 3000;
+                max-width: 400px;
+                animation: slideIn 0.3s, fadeOut 0.5s 2.5s forwards;
+                font-family: 'Inter', sans-serif;
+                line-height: 1.6;
+                white-space: pre-line;
+            `;
+            notification.innerHTML = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Close cart when clicking outside
+        window.addEventListener('click', function(event) {
+            const cartModal = document.getElementById('cartModal');
+            if (event.target === cartModal) {
+                closeCart();
+            }
+        });
+
+        // Initialize cart display
+        updateCartDisplay();
+    </script>
+</body>
+</html>
