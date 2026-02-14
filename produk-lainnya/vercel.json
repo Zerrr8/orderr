@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/lainnya", "destination": "/lainnya.html" }
+  ],
+  "redirects": [
+    { "source": "/lainnya.html", "destination": "/lainnya", "permanent": true }
+  ]
+}
